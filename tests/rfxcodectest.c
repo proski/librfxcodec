@@ -116,7 +116,6 @@ speed_random(int count, const char *quants)
     tiles[1].quant_cr = 0;
     num_tiles = 1;
     num_quants = 1;
-    error = 0;
     stime = get_mstime();
     flags = 0;
     //flags = RFX_FLAGS_ALPHAV1;
@@ -357,6 +356,9 @@ read_file(int count, const char *quants, int num_quants,
     if (encode_file(data, width, height, cdata, &cdata_bytes, quants, num_quants) != 0)
     {
         printf("encode_file failed\n");
+        free(data);
+        free(cdata);
+        close(in_fd);
         return 1;
     }
     printf("encode data ok bytes %d\n", cdata_bytes);
