@@ -21,7 +21,7 @@
 
 %include "common.asm"
 
-section .data
+section .text
     align 16
     cw128    times 8 dw 128
     cdFFFF   times 4 dd 65535
@@ -42,8 +42,6 @@ section .data
     cwa4096  times 8 dw 4096  ; 13
     cwa8192  times 8 dw 8192  ; 14
     cwa16384 times 8 dw 16384 ; 15
-
-section .text
 
 ;******************************************************************************
 ; source 16 bit signed, 16 pixel width
